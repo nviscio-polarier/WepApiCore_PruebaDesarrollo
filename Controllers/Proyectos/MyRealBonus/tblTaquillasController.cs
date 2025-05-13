@@ -85,9 +85,39 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
                 return StatusCode(500, $"Error solicitu Personas: {e.Message}");
             }
         }
-        
+
+        ///<summary>
+        /// Se recoge la lista de vehiculos por idLavanderia = idLavanderia seleccionada 
+        /// </summary>
+
+        [EnableQuery]
+        [HttpGet("odata/getVehiculoLavanderia")]
+        public async Task<ActionResult> GetVehiculoLavanderia([FromODataUri] int idLavanderia)
+        {
+            try
+            {
+                var query = db.tblVehiculo
+                .Where(p => p.eliminado == false
+                )
+                .Include(p => p.idLavanderia)
+                .Select(p => new VehiculoDTO
+                {
+                    idVehiculo = p.idVehiculo,
+                    matricula = p.matricula,
+                });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Personas: {e.Message}");
+            }
+        }
+
+
         /// <summary>
-        /// DTO para recibir solo id y denominacion
+        /// DTO GET Lavanderia
         /// </summary>
         public class LavanderiaDTO
         {
@@ -96,7 +126,7 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
         }
 
         /// <summary>
-        /// DTO para recibir los datos de persona
+        /// DTO GET Info Persona
         /// </summary>
 
         public class PersonaDTO
@@ -104,6 +134,24 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             public int idPersona { get; set; }
             public string nombre { get; set; }
             public string apellidos { get; set; }
+        }
+
+        /// <summary>
+        /// DTO GET Info Vehiculo
+        /// </summary>
+         
+        public class VehiculoDTO
+        {
+            public int idVehiculo { get; set; }
+            public string matricula { get; set; }
+        }
+
+        /// <summary>
+        /// DTO POST Registro 
+        /// </summary>
+        
+        public class RegistroDTO
+        {
         }
     }
 }
