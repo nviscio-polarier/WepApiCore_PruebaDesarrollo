@@ -18,7 +18,7 @@ using WebApiCore.Hubs;
 
 namespace WebApiCore.Controllers.Proyectos.MyRealBonus
 {
-    public class tblTaquillasController : ODataController 
+    public class tblTaquillasController : ODataController
     {
         private readonly bdERP db;
 
@@ -65,9 +65,9 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             try
             {
                 var query = db.tblPersona
-                .Where(p => p.idLavanderia == idLavanderia 
+                .Where(p => p.idLavanderia == idLavanderia
                             && p.activo == true
-                            && p.eliminado == false 
+                            && p.eliminado == false
                             && p.idTipoTrabajo == 6
                 )
                 .Select(p => new PersonaDTO
@@ -99,11 +99,11 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
                 var query = db.tblVehiculo
                 .Where(p => p.eliminado == false
                 )
-                .Include(p => p.idLavanderia)
                 .Select(p => new VehiculoDTO
                 {
                     idVehiculo = p.idVehiculo,
                     matricula = p.matricula,
+                    denominacion = p.denominacion,
                 });
 
                 var result = await query.ToListAsync();
@@ -115,6 +115,69 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             }
         }
 
+        [EnableQuery]
+        [HttpGet("odata/getTaquillas")]
+        public async Task<ActionResult> GetTaquillas()
+        {
+            try
+            {
+                var query = db.tblTaquillas_prueba
+                    .Select(p => new TaquillaDTO 
+                    {
+                        idTaquilla = p.idTaquilla,
+                        denominaconTaquilla = p.denominacion,
+                        idLavanderia = p.idLavanderia,
+                        tamaño = p.tamaño
+
+                    });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Lavanderia: {e.Message}");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //[EnableQuery]
+        //[HttpGet("odata/getVehiculoLavanderia")]
+        //public async Task<ActionResult> GetVehiculoLavanderia([FromODataUri] int idLavanderia)
+        //{
+        //    try
+        //    {
+        //        var query = db.tblVehiculoNLavanderia
+        //            .Where(vl => vl.idLavanderia == idLavanderia && vl.tblVehiculo.eliminado == false)
+        //            .Select(vl => new VehiculoDTO
+        //            {
+        //                idVehiculo = vl.tblVehiculo.idVehiculo,
+        //                matricula = vl.tblVehiculo.matricula,
+        //                denominacion = vl.tblVehiculo.denominacion
+        //            });
+
+        //        var result = await query.ToListAsync();
+        //        return Ok(result);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return StatusCode(500, $"Error solicitud Vehiculos: {e.Message}");
+        //    }
+        //}
 
         /// <summary>
         /// DTO GET Lavanderia
@@ -139,19 +202,35 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
         /// <summary>
         /// DTO GET Info Vehiculo
         /// </summary>
-         
+
         public class VehiculoDTO
         {
             public int idVehiculo { get; set; }
             public string matricula { get; set; }
+            public string denominacion { get; set; }
         }
 
         /// <summary>
         /// DTO POST Registro 
         /// </summary>
-        
-        public class RegistroDTO
+
+        public class RegistroRecogidaDTO
         {
+            public int idMovimientos { get; set; }
+            public int idTaquilla { get; set; }
+            public int idVehiculo { get; set; }
+            public int idPersona { get; set; }
+            public Date fechaRecogida { get; set; }
+            public int posicion { get; set; }
+
         }
-    }
+
+        public class TaquillaDTO 
+        { 
+            public int idTaquilla { get; set; }
+            public string denominaconTaquilla {  get; set; }
+            public int idLavanderia { get; set; }
+            public string tamaño { get; set; }
+
+        }
 }
