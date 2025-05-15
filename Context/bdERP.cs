@@ -7847,13 +7847,13 @@ namespace WebApiCore.Context
                     .WithMany()
                     .HasForeignKey(d => d.idTaquilla)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblTaquil__idTaq__0432261C");
+                    .HasConstraintName("FK__tblTaquil__idTaq__070E92C7");
 
                 entity.HasOne(d => d.idVehiculoNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.idVehiculo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblTaquil__idVeh__05264A55");
+                    .HasConstraintName("FK__tblTaquil__idVeh__0802B700");
             });
 
             modelBuilder.Entity<tblTaquillas_Movimiento_prueba>(entity =>
@@ -7884,8 +7884,6 @@ namespace WebApiCore.Context
             {
                 entity.HasKey(e => e.idTaquilla)
                     .HasName("PK__tblTaqui__03ADAA5AF9016604");
-
-                entity.Property(e => e.denominacion).IsFixedLength();
 
                 entity.HasOne(d => d.idLavanderiaNavigation)
                     .WithMany(p => p.tblTaquillas_prueba)

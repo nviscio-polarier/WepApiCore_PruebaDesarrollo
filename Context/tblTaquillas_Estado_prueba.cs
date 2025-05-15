@@ -12,6 +12,11 @@ namespace WebApiCore.Context
     {
         public int idTaquilla { get; set; }
         public int idVehiculo { get; set; }
+        [StringLength(255)]
+        [Unicode(false)]
+        public string? tipo { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? fecha { get; set; }
         public bool? disponible { get; set; }
 
         [ForeignKey("idTaquilla")]

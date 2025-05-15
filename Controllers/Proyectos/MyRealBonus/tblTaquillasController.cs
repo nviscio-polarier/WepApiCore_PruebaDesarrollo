@@ -111,8 +111,63 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             }
         }
 
+        ///<summary>
+        /// Se recoge la lista de taquillas
+        /// </summary>
 
+        [EnableQuery]
+        [HttpGet("odata/getTaquillas")]
+        public async Task<ActionResult> GetTaquillas()
+        {
+            try
+            {
+                var query = db.tblTaquillas_prueba
+                    .Select(p => new TaquillasDTO
+                    {
+                        idTaquilla = p.idTaquilla,
+                        denominacion = p.denominacion,
+                        idLavanderia = p.idLavanderia,
+                        tamaño = p.tamaño
+                    });
 
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Lavanderia: {e.Message}");
+            }
+        }
+
+        ///<summary>
+        /// Se recoge la lista de taquillas por lavanderia
+        /// </summary>
+
+        [EnableQuery]
+        [HttpGet("odata/getTaquillasLavanderia")]
+        public async Task<ActionResult> GetTaquillasLavanderia([FromODataUri] int idLavanderia)
+        {
+            try
+            {
+                var query = db.tblTaquillas_prueba
+                .Where(p => p.idLavanderia == idLavanderia
+                )
+                .Select(p => new TaquillasLvanderiaDTO
+                {
+                    idTaquilla = p.idTaquilla,
+                    denominacion = p.denominacion,
+                    tamaño = p.tamaño,
+                });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Personas: {e.Message}");
+            }
+        }
     }
 
     /// <summary>
@@ -151,12 +206,20 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
     /// DTO GET Info Taquillas
     /// </summary>
 
-    //public class TaquillasDTO
-    //{
-    //    public int idTaquilla { get; set; }
-    //    public string denominacion { get; set; }
-    //    public string idLavanderia { get; set; }
-    //}
+    public class TaquillasDTO
+    {
+        public int idTaquilla { get; set; }
+        public string denominacion { get; set; }
+        public int? idLavanderia { get; set; }
+        public int tamaño { get; set; }
+    }
+
+    public class TaquillasLvanderiaDTO
+    {
+        public int idTaquilla { get; set; }
+        public string denominacion { get; set; }
+        public int tamaño { get; set; }
+    }
 
 }
 

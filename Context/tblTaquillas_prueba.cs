@@ -16,9 +16,9 @@ namespace WebApiCore.Context
 
         [Key]
         public int idTaquilla { get; set; }
-        [StringLength(1)]
+        [StringLength(255)]
         [Unicode(false)]
-        public string denominacion { get; set; } = null!;
+        public string? denominacion { get; set; }
         public int? idLavanderia { get; set; }
         public int tamaño { get; set; }
 
