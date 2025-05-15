@@ -6,22 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApiCore.Context
 {
-    [Keyless]
     [Table("tblTaquillas_Estado_prueba", Schema = "MyRealBonus")]
     public partial class tblTaquillas_Estado_prueba
     {
+        [Key]
+        public int idEstado { get; set; }
         public int idTaquilla { get; set; }
-        public int idVehiculo { get; set; }
-        [StringLength(255)]
-        [Unicode(false)]
-        public string? tipo { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? fecha { get; set; }
+        public int posicion { get; set; }
         public bool? disponible { get; set; }
 
         [ForeignKey("idTaquilla")]
+        [InverseProperty("tblTaquillas_Estado_prueba")]
         public virtual tblTaquillas_prueba idTaquillaNavigation { get; set; } = null!;
-        [ForeignKey("idVehiculo")]
-        public virtual tblVehiculo idVehiculoNavigation { get; set; } = null!;
     }
 }

@@ -22,12 +22,12 @@ namespace WebApiCore.Context
 
         [ForeignKey("idPersona")]
         [InverseProperty("tblTaquillas_Movimiento_prueba")]
-        public virtual tblPersona idPersonaNavigation { get; set; } = null!;
+        public virtual tblPersona? idPersonaNavigation { get; set; }
         [ForeignKey("idTaquilla")]
         [InverseProperty("tblTaquillas_Movimiento_prueba")]
-        public virtual tblTaquillas_prueba idTaquillaNavigation { get; set; } = null!;
+        public virtual tblTaquillas_prueba? idTaquillaNavigation { get; set; }
         [ForeignKey("idVehiculo")]
         [InverseProperty("tblTaquillas_Movimiento_prueba")]
-        public virtual tblVehiculo idVehiculoNavigation { get; set; } = null!;
+        public virtual tblVehiculo? idVehiculoNavigation { get; set; }
     }
 }

@@ -7843,17 +7843,14 @@ namespace WebApiCore.Context
 
             modelBuilder.Entity<tblTaquillas_Estado_prueba>(entity =>
             {
+                entity.HasKey(e => e.idEstado)
+                    .HasName("PK__tblTaqui__62EA894A3D961FEE");
+
                 entity.HasOne(d => d.idTaquillaNavigation)
-                    .WithMany()
+                    .WithMany(p => p.tblTaquillas_Estado_prueba)
                     .HasForeignKey(d => d.idTaquilla)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblTaquil__idTaq__070E92C7");
-
-                entity.HasOne(d => d.idVehiculoNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.idVehiculo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblTaquil__idVeh__0802B700");
+                    .HasConstraintName("FK__tblTaquil__idTaq__118C213A");
             });
 
             modelBuilder.Entity<tblTaquillas_Movimiento_prueba>(entity =>

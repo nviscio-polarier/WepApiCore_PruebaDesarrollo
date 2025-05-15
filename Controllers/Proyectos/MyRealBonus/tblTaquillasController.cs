@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using WebApiCore.Class;
 using WebApiCore.Context;
+using WebApiCore.Enums.Assistant;
 using WebApiCore.Enums.RRHH;
 using WebApiCore.Hubs;
 
@@ -27,6 +28,10 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             db = context;
         }
 
+        ///<summary>
+        /// HELPERS: Llamadas no explicitamente relacionadas con las taquillas
+        /// </summary>
+  
         ///<summary>
         /// Se recoge la lista de lavanderias
         /// </summary>
@@ -112,6 +117,10 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
         }
 
         ///<summary>
+        /// TAQUILLAS:
+        /// </summary>
+
+        ///<summary>
         /// Se recoge la lista de taquillas
         /// </summary>
 
@@ -168,58 +177,189 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
                 return StatusCode(500, $"Error solicitu Personas: {e.Message}");
             }
         }
+
+        ///<summary>
+        /// Se recoge la lista de registros
+        /// </summary>
+
+        [EnableQuery]
+        [HttpGet("odata/getRegistros")]
+        public async Task<ActionResult> GetRegistros()
+        {
+            try
+            {
+                var query = db.tblTaquillas_Estado_prueba
+                    .Select(p => new EstadoDTO
+                    {
+                        idTaquilla = p.idTaquilla,
+                        posicion = p.posicion,
+                        disponible = p.disponible,
+
+                    });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Lavanderia: {e.Message}");
+            }
+        }
+
+        ///<summary>
+        /// Postea el estado de la posicion ( disponible = si/no )
+        /// </summary>
+
+        [HttpPost("odata/postEstadoTaquilla")]
+        public async Task<ActionResult> PostEstadoTaquilla([FromBody] EstadoTaquillaDTO nuevoEstado)
+        {
+            try
+            {
+                var estado = new tblTaquillas_Estado_prueba
+                {
+                    idTaquilla = nuevoEstado.idTaquilla,
+                    posicion = nuevoEstado.posicion,
+                    disponible = nuevoEstado.disponible
+                };
+
+                db.tblTaquillas_Estado_prueba.Add(estado);
+                await db.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    mensaje = "Registro creado correctamente",
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al crear el registro: {ex.Message}");
+            }
+        }
+
+        ///<summary>
+        /// Postea el log de movimiento 
+        /// </summary>
+
+        [HttpPost("odata/postMovimientoTaquilla")]
+        public async Task<ActionResult> PostMovimientoTaquilla([FromBody] MovimientoTaquillaDTO nuevoMovimiento)
+        {
+            try
+            {
+                var movimiento = new tblTaquillas_Movimiento_prueba
+                {
+                    idTaquilla = nuevoMovimiento.idTaquilla,
+                    idVehiculo = nuevoMovimiento.idVehiculo,
+                    idPersona = nuevoMovimiento.idPersona,
+                    fechaRecogida = nuevoMovimiento.fechaRecogida,
+                    fechaDejar = nuevoMovimiento.fechaDejar,
+                    posicion = nuevoMovimiento.posicion
+                };
+
+                db.tblTaquillas_Movimiento_prueba.Add(movimiento);
+                await db.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    mensaje = "Movimiento creado correctamente",
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al crear el movimiento: {ex.Message}");
+            }
+        }
     }
 
-    /// <summary>
-    /// DTO para recibir solo id y denominacion
-    /// </summary>
-    public class LavanderiaDTO
-    {
-        public int idLavanderia { get; set; }
-        public string denominacion { get; set; }
-    }
+        /// <summary>
+        /// DTO para recibir solo id y denominacion
+        /// </summary>
+        public class LavanderiaDTO
+        {
+            public int idLavanderia { get; set; }
+            public string denominacion { get; set; }
+        }
 
-    /// <summary>
-    /// DTO para recibir los datos de persona
-    /// </summary>
+        /// <summary>
+        /// DTO para recibir los datos de persona
+        /// </summary>
 
-    public class PersonaDTO
-    {
-        public int idPersona { get; set; }
-        public string nombre { get; set; }
-        public string apellidos { get; set; }
-    }
+        public class PersonaDTO
+        {
+            public int idPersona { get; set; }
+            public string nombre { get; set; }
+            public string apellidos { get; set; }
+        }
 
 
-    /// <summary>
-    /// DTO GET Info Vehiculo
-    /// </summary>
+        /// <summary>
+        /// DTO GET Info Vehiculo
+        /// </summary>
 
-    public class VehiculoDTO
-    {
-        public int idVehiculo { get; set; }
-        public string matricula { get; set; }
-        public string denominacion { get; set; }
-    }
+        public class VehiculoDTO
+        {
+            public int idVehiculo { get; set; }
+            public string matricula { get; set; }
+            public string denominacion { get; set; }
+        }
 
-    /// <summary>
-    /// DTO GET Info Taquillas
-    /// </summary>
+        /// <summary>
+        /// DTO GET Info Taquillas
+        /// </summary>
 
-    public class TaquillasDTO
-    {
-        public int idTaquilla { get; set; }
-        public string denominacion { get; set; }
-        public int? idLavanderia { get; set; }
-        public int tamaño { get; set; }
-    }
+        public class TaquillasDTO
+        {
+            public int idTaquilla { get; set; }
+            public string denominacion { get; set; }
+            public int? idLavanderia { get; set; }
+            public int tamaño { get; set; }
+        }
 
-    public class TaquillasLvanderiaDTO
-    {
-        public int idTaquilla { get; set; }
-        public string denominacion { get; set; }
-        public int tamaño { get; set; }
-    }
+        /// <summary>
+        /// DTO GET Taquilla de lavanderia selecionada
+        /// </summary>
 
+        public class TaquillasLvanderiaDTO
+        {
+            public int idTaquilla { get; set; }
+            public string denominacion { get; set; }
+            public int tamaño { get; set; }
+        }
+
+        /// <summary>
+        /// DTO GET estado taquilla + posicion 
+        /// </summary>
+
+        public class EstadoDTO
+        {
+            public int idTaquilla { get; set; }
+            public int posicion { get; set; }
+            public bool? disponible { get; set; }
+        }
+
+        /// <summary>
+        /// DTO POST estado posicion taquilla
+        /// </summary>
+
+        public class EstadoTaquillaDTO
+        {
+            public int idTaquilla { get; set; }
+            public int posicion { get; set; }
+            public bool? disponible { get; set; }
+        }
+
+        /// <summary>
+        /// DTO POST movimiento ( entrada salida )
+        /// </summary>
+
+        public class MovimientoTaquillaDTO
+        {
+            public int idTaquilla { get; set; }
+            public int idVehiculo { get; set; }
+            public int idPersona { get; set; }
+            public DateTime? fechaRecogida { get; set; }
+            public DateTime? fechaDejar { get; set; }
+            public int? posicion { get; set; }
+        }
 }
 
