@@ -16,12 +16,6 @@ namespace WebApiCore.Context
         {
         }
 
-        public virtual DbSet<AlexBackup_logsToken> AlexBackup_logsToken { get; set; } = null!;
-        public virtual DbSet<AlexBackup_personaNMaquina> AlexBackup_personaNMaquina { get; set; } = null!;
-        public virtual DbSet<AlexBackup_personaTokens> AlexBackup_personaTokens { get; set; } = null!;
-        public virtual DbSet<AlexBackup_prendaNMaquina> AlexBackup_prendaNMaquina { get; set; } = null!;
-        public virtual DbSet<AlexBackup_solicitudesTokens> AlexBackup_solicitudesTokens { get; set; } = null!;
-        public virtual DbSet<MyRealBonus_tblTipoEventoToken> MyRealBonus_tblTipoEventoToken { get; set; } = null!;
         public virtual DbSet<bdERP_alex> bdERP_alex { get; set; } = null!;
         public virtual DbSet<bdERP_joan> bdERP_joan { get; set; } = null!;
         public virtual DbSet<bdERP_nico> bdERP_nico { get; set; } = null!;
@@ -85,7 +79,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblArticuloNAdmPedidoCliente> tblArticuloNAdmPedidoCliente { get; set; } = null!;
         public virtual DbSet<tblArticuloNAdmPedidoProveedor> tblArticuloNAdmPedidoProveedor { get; set; } = null!;
         public virtual DbSet<tblArticuloNAdmPresupuestoVenta> tblArticuloNAdmPresupuestoVenta { get; set; } = null!;
-        public virtual DbSet<tblAuxPlegadoras> tblAuxPlegadoras { get; set; } = null!;
         public virtual DbSet<tblBacsCarro> tblBacsCarro { get; set; } = null!;
         public virtual DbSet<tblBalanceHoras> tblBalanceHoras { get; set; } = null!;
         public virtual DbSet<tblBalanceHorasExtra> tblBalanceHorasExtra { get; set; } = null!;
@@ -109,7 +102,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblCategoriaMaquina> tblCategoriaMaquina { get; set; } = null!;
         public virtual DbSet<tblCategoriaRecurso> tblCategoriaRecurso { get; set; } = null!;
         public virtual DbSet<tblCategoria_Grupo> tblCategoria_Grupo { get; set; } = null!;
-        public virtual DbSet<tblCategoriasVideos> tblCategoriasVideos { get; set; } = null!;
         public virtual DbSet<tblCentroTrabajo> tblCentroTrabajo { get; set; } = null!;
         public virtual DbSet<tblCierreDatos_Facturacion> tblCierreDatos_Facturacion { get; set; } = null!;
         public virtual DbSet<tblCierreDatos_Lavanderia> tblCierreDatos_Lavanderia { get; set; } = null!;
@@ -193,15 +185,11 @@ namespace WebApiCore.Context
         public virtual DbSet<tblEstadoSolicitudAlta> tblEstadoSolicitudAlta { get; set; } = null!;
         public virtual DbSet<tblEstadoSolicitudAltaNSolicitudAlta> tblEstadoSolicitudAltaNSolicitudAlta { get; set; } = null!;
         public virtual DbSet<tblEstadoTag> tblEstadoTag { get; set; } = null!;
-        public virtual DbSet<tblEstadosVideo> tblEstadosVideo { get; set; } = null!;
         public virtual DbSet<tblEstancia> tblEstancia { get; set; } = null!;
-        public virtual DbSet<tblEtiquetas> tblEtiquetas { get; set; } = null!;
-        public virtual DbSet<tblEventoMyRealLearning> tblEventoMyRealLearning { get; set; } = null!;
         public virtual DbSet<tblEventoPersona> tblEventoPersona { get; set; } = null!;
         public virtual DbSet<tblEventoPersona_Estado> tblEventoPersona_Estado { get; set; } = null!;
         public virtual DbSet<tblFabricante> tblFabricante { get; set; } = null!;
         public virtual DbSet<tblFamilia> tblFamilia { get; set; } = null!;
-        public virtual DbSet<tblFamiliaProducto> tblFamiliaProducto { get; set; } = null!;
         public virtual DbSet<tblFormatoDiasLibres> tblFormatoDiasLibres { get; set; } = null!;
         public virtual DbSet<tblFormatoReunion> tblFormatoReunion { get; set; } = null!;
         public virtual DbSet<tblFormulario> tblFormulario { get; set; } = null!;
@@ -228,7 +216,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblIdioma> tblIdioma { get; set; } = null!;
         public virtual DbSet<tblImagenNCliente> tblImagenNCliente { get; set; } = null!;
         public virtual DbSet<tblImagenNProveedor> tblImagenNProveedor { get; set; } = null!;
-        public virtual DbSet<tblImagenesProductos> tblImagenesProductos { get; set; } = null!;
         public virtual DbSet<tblIncidencia> tblIncidencia { get; set; } = null!;
         public virtual DbSet<tblIncidenciaNParte> tblIncidenciaNParte { get; set; } = null!;
         public virtual DbSet<tblIncidenciaNReunion> tblIncidenciaNReunion { get; set; } = null!;
@@ -260,7 +247,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblLogAcciones_App> tblLogAcciones_App { get; set; } = null!;
         public virtual DbSet<tblLogConexiones> tblLogConexiones { get; set; } = null!;
         public virtual DbSet<tblLogError> tblLogError { get; set; } = null!;
-        public virtual DbSet<tblLogsToken> tblLogsToken { get; set; } = null!;
         public virtual DbSet<tblMantenimientoNMaquina> tblMantenimientoNMaquina { get; set; } = null!;
         public virtual DbSet<tblMantenimientoPrev> tblMantenimientoPrev { get; set; } = null!;
         public virtual DbSet<tblMaquina> tblMaquina { get; set; } = null!;
@@ -287,7 +273,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblNomina_MX> tblNomina_MX { get; set; } = null!;
         public virtual DbSet<tblNomina_RD> tblNomina_RD { get; set; } = null!;
         public virtual DbSet<tblNotificacion> tblNotificacion { get; set; } = null!;
-        public virtual DbSet<tblNotificacionNPersonaNVideo> tblNotificacionNPersonaNVideo { get; set; } = null!;
         public virtual DbSet<tblNotificacion_Estado> tblNotificacion_Estado { get; set; } = null!;
         public virtual DbSet<tblNotificacion_Evento> tblNotificacion_Evento { get; set; } = null!;
         public virtual DbSet<tblNotificaciones_TI> tblNotificaciones_TI { get; set; } = null!;
@@ -317,7 +302,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblPersonaNAreaNLavanderia> tblPersonaNAreaNLavanderia { get; set; } = null!;
         public virtual DbSet<tblPersonaNMaquina> tblPersonaNMaquina { get; set; } = null!;
         public virtual DbSet<tblPersonaNTipoContrato> tblPersonaNTipoContrato { get; set; } = null!;
-        public virtual DbSet<tblPersonaTokens> tblPersonaTokens { get; set; } = null!;
         public virtual DbSet<tblPersona_PeticionCambioDatos> tblPersona_PeticionCambioDatos { get; set; } = null!;
         public virtual DbSet<tblPersonasNParte> tblPersonasNParte { get; set; } = null!;
         public virtual DbSet<tblPersonasNParte1> tblPersonasNParte1 { get; set; } = null!;
@@ -372,7 +356,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblProduccion> tblProduccion { get; set; } = null!;
         public virtual DbSet<tblProduccionMaquinaNCliente> tblProduccionMaquinaNCliente { get; set; } = null!;
         public virtual DbSet<tblProduccionMaquinaNPrenda> tblProduccionMaquinaNPrenda { get; set; } = null!;
-        public virtual DbSet<tblProductosTokens> tblProductosTokens { get; set; } = null!;
         public virtual DbSet<tblProgramasLavadora> tblProgramasLavadora { get; set; } = null!;
         public virtual DbSet<tblProveedor> tblProveedor { get; set; } = null!;
         public virtual DbSet<tblProyecto> tblProyecto { get; set; } = null!;
@@ -410,11 +393,9 @@ namespace WebApiCore.Context
         public virtual DbSet<tblSeccionNivel1> tblSeccionNivel1 { get; set; } = null!;
         public virtual DbSet<tblSeccionNivel2> tblSeccionNivel2 { get; set; } = null!;
         public virtual DbSet<tblServicioExternoNParteTrabajo> tblServicioExternoNParteTrabajo { get; set; } = null!;
-        public virtual DbSet<tblSesionesVisualizacion> tblSesionesVisualizacion { get; set; } = null!;
         public virtual DbSet<tblSistemaMaquina> tblSistemaMaquina { get; set; } = null!;
         public virtual DbSet<tblSolicitudAbono> tblSolicitudAbono { get; set; } = null!;
         public virtual DbSet<tblSolicitudAlta> tblSolicitudAlta { get; set; } = null!;
-        public virtual DbSet<tblSolicitudesTokens> tblSolicitudesTokens { get; set; } = null!;
         public virtual DbSet<tblStockMinimoNAlmacenRecambios> tblStockMinimoNAlmacenRecambios { get; set; } = null!;
         public virtual DbSet<tblStockTipoElemLogNEntidad> tblStockTipoElemLogNEntidad { get; set; } = null!;
         public virtual DbSet<tblSubAlmacen> tblSubAlmacen { get; set; } = null!;
@@ -424,6 +405,9 @@ namespace WebApiCore.Context
         public virtual DbSet<tblTaquilla> tblTaquilla { get; set; } = null!;
         public virtual DbSet<tblTaquilla_estado> tblTaquilla_estado { get; set; } = null!;
         public virtual DbSet<tblTaquilla_movimiento> tblTaquilla_movimiento { get; set; } = null!;
+        public virtual DbSet<tblTaquillas_Estado_prueba> tblTaquillas_Estado_prueba { get; set; } = null!;
+        public virtual DbSet<tblTaquillas_Movimiento_prueba> tblTaquillas_Movimiento_prueba { get; set; } = null!;
+        public virtual DbSet<tblTaquillas_prueba> tblTaquillas_prueba { get; set; } = null!;
         public virtual DbSet<tblTareaMantenimientoPrev> tblTareaMantenimientoPrev { get; set; } = null!;
         public virtual DbSet<tblTareaMaquina> tblTareaMaquina { get; set; } = null!;
         public virtual DbSet<tblTareaPersonaDia> tblTareaPersonaDia { get; set; } = null!;
@@ -481,7 +465,6 @@ namespace WebApiCore.Context
         public virtual DbSet<tblTipoTrabajoNUsuario> tblTipoTrabajoNUsuario { get; set; } = null!;
         public virtual DbSet<tblTipoUsuario> tblTipoUsuario { get; set; } = null!;
         public virtual DbSet<tblTipoVehiculo> tblTipoVehiculo { get; set; } = null!;
-        public virtual DbSet<tblTiposEventoMyRealLearning> tblTiposEventoMyRealLearning { get; set; } = null!;
         public virtual DbSet<tblToken_Refresh> tblToken_Refresh { get; set; } = null!;
         public virtual DbSet<tblToken_Refresh_Mobile> tblToken_Refresh_Mobile { get; set; } = null!;
         public virtual DbSet<tblTraduccion> tblTraduccion { get; set; } = null!;
@@ -490,46 +473,10 @@ namespace WebApiCore.Context
         public virtual DbSet<tblUnidadesPeso> tblUnidadesPeso { get; set; } = null!;
         public virtual DbSet<tblUsuario> tblUsuario { get; set; } = null!;
         public virtual DbSet<tblVehiculo> tblVehiculo { get; set; } = null!;
-        public virtual DbSet<tblVideo> tblVideo { get; set; } = null!;
-        public virtual DbSet<tblVideoNPersona> tblVideoNPersona { get; set; } = null!;
-        public virtual DbSet<tblVideoReproduccion> tblVideoReproduccion { get; set; } = null!;
         public virtual DbSet<tblZonaHoraria> tblZonaHoraria { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AlexBackup_logsToken>(entity =>
-            {
-                entity.Property(e => e.idLog).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<AlexBackup_personaNMaquina>(entity =>
-            {
-                entity.Property(e => e.idPersonaNMaquina).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<AlexBackup_personaTokens>(entity =>
-            {
-                entity.Property(e => e.idPersonaToken).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<AlexBackup_prendaNMaquina>(entity =>
-            {
-                entity.Property(e => e.idPrendaNMaquina).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<AlexBackup_solicitudesTokens>(entity =>
-            {
-                entity.Property(e => e.idRevision).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<MyRealBonus_tblTipoEventoToken>(entity =>
-            {
-                entity.HasKey(e => e.idTipoEventoToken)
-                    .HasName("PK__TblTipoE__2C5C5229F882F6B0");
-
-                entity.Property(e => e.idTipoEventoToken).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<bdERP_alex>(entity =>
             {
                 entity.Property(e => e.ID).ValueGeneratedNever();
@@ -1965,14 +1912,6 @@ namespace WebApiCore.Context
                     .HasConstraintName("FK_tblArticuloNAdmPresupuestoVenta_tblRecambio");
             });
 
-            modelBuilder.Entity<tblAuxPlegadoras>(entity =>
-            {
-                entity.HasKey(e => e.idMaquina)
-                    .HasName("PK__tblAuxPl__2FB8F71A656C1ACB");
-
-                entity.Property(e => e.idMaquina).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<tblBacsCarro>(entity =>
             {
                 entity.HasKey(e => new { e.idLavanderia, e.idFamilia });
@@ -2296,12 +2235,6 @@ namespace WebApiCore.Context
 
                             j.ToTable("tblCategoriaNGrupo", "RRHH");
                         });
-            });
-
-            modelBuilder.Entity<tblCategoriasVideos>(entity =>
-            {
-                entity.HasKey(e => e.idCategoria)
-                    .HasName("PK__tblCateg__8A3D240C0D65C7C6");
             });
 
             modelBuilder.Entity<tblCentroTrabajo>(entity =>
@@ -3570,12 +3503,6 @@ namespace WebApiCore.Context
                 entity.Property(e => e.idEstado).ValueGeneratedNever();
             });
 
-            modelBuilder.Entity<tblEstadosVideo>(entity =>
-            {
-                entity.HasKey(e => e.idEstado)
-                    .HasName("PK__tblEstad__62EA894A2034170D");
-            });
-
             modelBuilder.Entity<tblEstancia>(entity =>
             {
                 entity.HasKey(e => new { e.idEntidad, e.fecha });
@@ -3585,26 +3512,6 @@ namespace WebApiCore.Context
                     .HasForeignKey(d => d.idEntidad)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tblEstancia_tblEntidad");
-            });
-
-            modelBuilder.Entity<tblEtiquetas>(entity =>
-            {
-                entity.HasKey(e => e.idEtiqueta)
-                    .HasName("PK__tblEtiqu__3C1526A79B66909B");
-            });
-
-            modelBuilder.Entity<tblEventoMyRealLearning>(entity =>
-            {
-                entity.HasKey(e => e.idEvento)
-                    .HasName("PK__tblEvent__C8DC7BDAC0A6A270");
-
-                entity.Property(e => e.fecha).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.idTipoEventoNavigation)
-                    .WithMany(p => p.tblEventoMyRealLearning)
-                    .HasForeignKey(d => d.idTipoEvento)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Evento_TipoEvento");
             });
 
             modelBuilder.Entity<tblEventoPersona>(entity =>
@@ -3658,14 +3565,6 @@ namespace WebApiCore.Context
                     .WithMany(p => p.tblFamiliaidTraduccion_abrNavigation)
                     .HasForeignKey(d => d.idTraduccion_abr)
                     .HasConstraintName("FK_tblFamilia_tblTraduccion1");
-            });
-
-            modelBuilder.Entity<tblFamiliaProducto>(entity =>
-            {
-                entity.HasKey(e => e.idFamiliaProducto)
-                    .HasName("PK__TblFamil__B567D04D50FB338B");
-
-                entity.Property(e => e.idFamiliaProducto).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<tblFormatoDiasLibres>(entity =>
@@ -4117,12 +4016,6 @@ namespace WebApiCore.Context
                     .HasForeignKey(d => d.idAdmProveedor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tblImagenNProveedor_tblAdmProveedor");
-            });
-
-            modelBuilder.Entity<tblImagenesProductos>(entity =>
-            {
-                entity.HasKey(e => e.idImagen)
-                    .HasName("PK__tblImage__B42D8F2AC6B32594");
             });
 
             modelBuilder.Entity<tblIncidencia>(entity =>
@@ -4861,25 +4754,6 @@ namespace WebApiCore.Context
                     .HasConstraintName("FK_tblLogConexiones_tblEnergyHub");
             });
 
-            modelBuilder.Entity<tblLogsToken>(entity =>
-            {
-                entity.HasKey(e => e.idLog)
-                    .HasName("PK__tblLogsT__3C7153CAC3EA9810");
-
-                entity.Property(e => e.fechaHora).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.idPersonaNavigation)
-                    .WithMany(p => p.tblLogsToken)
-                    .HasForeignKey(d => d.idPersona)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_TblLogs_TblPersona");
-
-                entity.HasOne(d => d.idTipoEventoTokenNavigation)
-                    .WithMany(p => p.tblLogsToken)
-                    .HasForeignKey(d => d.idTipoEventoToken)
-                    .HasConstraintName("FK_TblLogsToken_TblTipoEventoToken");
-            });
-
             modelBuilder.Entity<tblMantenimientoNMaquina>(entity =>
             {
                 entity.HasOne(d => d.idTipoMantenimientoNMaquinaNavigation)
@@ -5396,21 +5270,6 @@ namespace WebApiCore.Context
                     .WithMany(p => p.tblNotificacion)
                     .HasForeignKey(d => d.idUsuario)
                     .HasConstraintName("FK__tblNotifi__idUsu__46DE33C2");
-            });
-
-            modelBuilder.Entity<tblNotificacionNPersonaNVideo>(entity =>
-            {
-                entity.HasOne(d => d.idNotificacionNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.idNotificacion)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_NotiPV_Notificacion");
-
-                entity.HasOne(d => d.idPersonaVideoNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.idPersonaVideo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_NotiPV_PersonaVideo");
             });
 
             modelBuilder.Entity<tblNotificacion_Estado>(entity =>
@@ -6067,33 +5926,6 @@ namespace WebApiCore.Context
                     .WithMany(p => p.tblPersonaNTipoContrato)
                     .HasForeignKey(d => d.idTipoContrato)
                     .HasConstraintName("FK_tblPersonaNTipoContrato_tblTipoContrato");
-            });
-
-            modelBuilder.Entity<tblPersonaTokens>(entity =>
-            {
-                entity.HasKey(e => e.idPersonaToken)
-                    .HasName("PK__tblPerso__1C3D0661DFAE7374");
-
-                entity.HasOne(d => d.idPersonaNavigation)
-                    .WithMany(p => p.tblPersonaTokens)
-                    .HasForeignKey(d => d.idPersona)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_TblPersonaTokens_TblPersona");
-
-                entity.HasOne(d => d.idTipoEventoTokenNavigation)
-                    .WithMany(p => p.tblPersonaTokens)
-                    .HasForeignKey(d => d.idTipoEventoToken)
-                    .HasConstraintName("FK_TblPersonaTokens_MyRealBonus.tblTipoEventoToken");
-
-                entity.HasOne(d => d.idTipoEventoToken1)
-                    .WithMany(p => p.tblPersonaTokens)
-                    .HasForeignKey(d => d.idTipoEventoToken)
-                    .HasConstraintName("FK_TblPersonaTokens_TblTipoEventoToken");
-
-                entity.HasOne(d => d.idTipoProductoNavigation)
-                    .WithMany(p => p.tblPersonaTokens)
-                    .HasForeignKey(d => d.idTipoProducto)
-                    .HasConstraintName("FK_TblPersonaTokens_TblProductos");
             });
 
             modelBuilder.Entity<tblPersona_PeticionCambioDatos>(entity =>
@@ -7223,23 +7055,6 @@ namespace WebApiCore.Context
                     .HasConstraintName("FK_tblProduccionMaquinaNPrenda_tblPrenda");
             });
 
-            modelBuilder.Entity<tblProductosTokens>(entity =>
-            {
-                entity.HasKey(e => e.idProducto)
-                    .HasName("PK__tblProdu__07F4A13204C26464");
-
-                entity.HasOne(d => d.idFamiliaProductoNavigation)
-                    .WithMany(p => p.tblProductosTokens)
-                    .HasForeignKey(d => d.idFamiliaProducto)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblProductosTokens_tblFamiliaProducto");
-
-                entity.HasOne(d => d.idImagenProductoNavigation)
-                    .WithMany(p => p.tblProductosTokens)
-                    .HasForeignKey(d => d.idImagenProducto)
-                    .HasConstraintName("FK_tblProductosTokens_tblImagenesProductos");
-            });
-
             modelBuilder.Entity<tblProgramasLavadora>(entity =>
             {
                 entity.Property(e => e.idPrograma).ValueGeneratedNever();
@@ -7859,20 +7674,6 @@ namespace WebApiCore.Context
                     .HasConstraintName("FK_tblServicioExternoNParteTrabajo_tblParteTrabajo");
             });
 
-            modelBuilder.Entity<tblSesionesVisualizacion>(entity =>
-            {
-                entity.HasKey(e => e.idSesion)
-                    .HasName("PK_SesionesVisualizacion");
-
-                entity.Property(e => e.fechaInicio).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.idPersonaVideoNavigation)
-                    .WithMany(p => p.tblSesionesVisualizacion)
-                    .HasForeignKey(d => d.idPersonaVideo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Sesion_PersonaVideo");
-            });
-
             modelBuilder.Entity<tblSolicitudAbono>(entity =>
             {
                 entity.Property(e => e.idEstadoSolicitudAbono).HasDefaultValueSql("((1))");
@@ -7929,20 +7730,6 @@ namespace WebApiCore.Context
                     .WithMany(p => p.tblSolicitudAlta)
                     .HasForeignKey(d => d.idUsuario_validacion)
                     .HasConstraintName("FK_tblSolicitudAlta_tblUsuario");
-            });
-
-            modelBuilder.Entity<tblSolicitudesTokens>(entity =>
-            {
-                entity.HasKey(e => e.idRevision)
-                    .HasName("PK__tblRevis__51CC949A0B33869E");
-
-                entity.Property(e => e.fechaSolicitud).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.idPersonaTokenNavigation)
-                    .WithMany(p => p.tblSolicitudesTokens)
-                    .HasForeignKey(d => d.idPersonaToken)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblSolicitudesTokens_TblPersonaTokens");
             });
 
             modelBuilder.Entity<tblStockMinimoNAlmacenRecambios>(entity =>
@@ -8052,6 +7839,58 @@ namespace WebApiCore.Context
                     .WithMany(p => p.tblTaquilla_movimiento)
                     .HasForeignKey(d => d.idVehiculo)
                     .HasConstraintName("FK_tblTaquilla_movimiento_tblVehiculo");
+            });
+
+            modelBuilder.Entity<tblTaquillas_Estado_prueba>(entity =>
+            {
+                entity.HasOne(d => d.idTaquillaNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.idTaquilla)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblTaquil__idTaq__0432261C");
+
+                entity.HasOne(d => d.idVehiculoNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.idVehiculo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblTaquil__idVeh__05264A55");
+            });
+
+            modelBuilder.Entity<tblTaquillas_Movimiento_prueba>(entity =>
+            {
+                entity.HasKey(e => e.idMovimiento)
+                    .HasName("PK__tblTaqui__6285217382A888D9");
+
+                entity.HasOne(d => d.idPersonaNavigation)
+                    .WithMany(p => p.tblTaquillas_Movimiento_prueba)
+                    .HasForeignKey(d => d.idPersona)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblTaquil__idPer__0249DDAA");
+
+                entity.HasOne(d => d.idTaquillaNavigation)
+                    .WithMany(p => p.tblTaquillas_Movimiento_prueba)
+                    .HasForeignKey(d => d.idTaquilla)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblTaquil__idTaq__00619538");
+
+                entity.HasOne(d => d.idVehiculoNavigation)
+                    .WithMany(p => p.tblTaquillas_Movimiento_prueba)
+                    .HasForeignKey(d => d.idVehiculo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__tblTaquil__idVeh__0155B971");
+            });
+
+            modelBuilder.Entity<tblTaquillas_prueba>(entity =>
+            {
+                entity.HasKey(e => e.idTaquilla)
+                    .HasName("PK__tblTaqui__03ADAA5AF9016604");
+
+                entity.Property(e => e.denominacion).IsFixedLength();
+
+                entity.HasOne(d => d.idLavanderiaNavigation)
+                    .WithMany(p => p.tblTaquillas_prueba)
+                    .HasForeignKey(d => d.idLavanderia)
+                    .HasConstraintName("FK__tblTaquil__idLav__75E406C5");
             });
 
             modelBuilder.Entity<tblTareaMantenimientoPrev>(entity =>
@@ -8197,7 +8036,7 @@ namespace WebApiCore.Context
             modelBuilder.Entity<tblTipoEventoToken>(entity =>
             {
                 entity.HasKey(e => e.idTipoEventoToken)
-                    .HasName("PK__tblTipoE__2C5C522973F43294");
+                    .HasName("PK__tblTipoE__2C5C52293404A75B");
 
                 entity.Property(e => e.idTipoEventoToken).ValueGeneratedNever();
             });
@@ -8499,12 +8338,6 @@ namespace WebApiCore.Context
                 entity.Property(e => e.idTipoVehiculo).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<tblTiposEventoMyRealLearning>(entity =>
-            {
-                entity.HasKey(e => e.idTipoEvento)
-                    .HasName("PK_TiposEvento");
-            });
-
             modelBuilder.Entity<tblToken_Refresh>(entity =>
             {
                 entity.Property(e => e.idToken).HasDefaultValueSql("(newid())");
@@ -8662,63 +8495,6 @@ namespace WebApiCore.Context
 
                             j.ToTable("tblVehiculoNLavanderia", "Logistica");
                         });
-            });
-
-            modelBuilder.Entity<tblVideo>(entity =>
-            {
-                entity.HasKey(e => e.idVideo)
-                    .HasName("PK__tblVideo__D2D0AD2ABE6B30CF");
-
-                entity.HasOne(d => d.idCategoriaNavigation)
-                    .WithMany(p => p.tblVideo)
-                    .HasForeignKey(d => d.idCategoria)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblVideo__idCate__1CC8C9BC");
-
-                entity.HasMany(d => d.idEtiqueta)
-                    .WithMany(p => p.idVideo)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "tblEtiquetaNVideo",
-                        l => l.HasOne<tblEtiquetas>().WithMany().HasForeignKey("idEtiqueta").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__tblEtique__idEti__2281A312"),
-                        r => r.HasOne<tblVideo>().WithMany().HasForeignKey("idVideo").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_tblEtiquetaNVideo_tblVideo"),
-                        j =>
-                        {
-                            j.HasKey("idVideo", "idEtiqueta").HasName("PK__tblEtiqu__B111FF406DB01269");
-
-                            j.ToTable("tblEtiquetaNVideo", "MyRealLearning");
-                        });
-            });
-
-            modelBuilder.Entity<tblVideoNPersona>(entity =>
-            {
-                entity.HasKey(e => e.idPersonaVideo)
-                    .HasName("PK__tblPerso__F31EE836840B5DE0");
-
-                entity.HasOne(d => d.idEstadoNavigation)
-                    .WithMany(p => p.tblVideoNPersona)
-                    .HasForeignKey(d => d.idEstado)
-                    .HasConstraintName("FK__tblPerson__idEst__2CFF3185");
-
-                entity.HasOne(d => d.idPersonaNavigation)
-                    .WithMany(p => p.tblVideoNPersonaidPersonaNavigation)
-                    .HasForeignKey(d => d.idPersona)
-                    .HasConstraintName("FK_tblPersonaNVideo_tblPersona");
-
-                entity.HasOne(d => d.idPersonaRemitenteNavigation)
-                    .WithMany(p => p.tblVideoNPersonaidPersonaRemitenteNavigation)
-                    .HasForeignKey(d => d.idPersonaRemitente)
-                    .HasConstraintName("FK_tblPersonaNVideo_tblPersona1");
-
-                entity.HasOne(d => d.idVideoNavigation)
-                    .WithMany(p => p.tblVideoNPersona)
-                    .HasForeignKey(d => d.idVideo)
-                    .HasConstraintName("FK__tblPerson__idVid__2C0B0D4C");
-            });
-
-            modelBuilder.Entity<tblVideoReproduccion>(entity =>
-            {
-                entity.HasKey(e => e.idVideoRepro)
-                    .HasName("PK__tblVideo__64F16AB88B58000F");
             });
 
             modelBuilder.Entity<tblZonaHoraria>(entity =>

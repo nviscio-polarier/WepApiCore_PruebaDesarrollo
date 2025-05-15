@@ -115,9 +115,6 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
 
     }
 
-
-
-
     /// <summary>
     /// DTO para recibir solo id y denominacion
     /// </summary>
@@ -149,6 +146,17 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
         public string matricula { get; set; }
         public string denominacion { get; set; }
     }
+
+    /// <summary>
+    /// DTO GET Info Taquillas
+    /// </summary>
+
+    //public class TaquillasDTO
+    //{
+    //    public int idTaquilla { get; set; }
+    //    public string denominacion { get; set; }
+    //    public string idLavanderia { get; set; }
+    //}
 
 }
 

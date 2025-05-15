@@ -14,7 +14,7 @@ using WebApiCore.Security;
 using WebApiCore.Services;
 using WebApiCore.Services.a3innuva;
 using WebApiCore.Services.MyQuality;
-using WebApiCore.Services.MyRealBonus;
+//using WebApiCore.Services.MyRealBonus;
 using WebApiCore.Services.VIPS;
 using static WebApiCore.Controllers.ArticuloController;
 using static WebApiCore.Controllers.Proyectos.Administracion.direccionesEntregaController;
@@ -36,9 +36,9 @@ builder.Services.AddDbContext<bdMyAudit>(opt => opt
     .UseSqlServer(builder.Configuration.GetConnectionString("bdMyAudit"))
 );
 
-//ALEX
-builder.Services.AddScoped<CalculoTokenService>();
-builder.Services.AddScoped<PersonaVideoService>();
+////ALEX
+//builder.Services.AddScoped<CalculoTokenService>();
+//builder.Services.AddScoped<PersonaVideoService>();
 
 
 if (Utils.isProduccion()) // Si estamos en producción, se dan de alta los workers

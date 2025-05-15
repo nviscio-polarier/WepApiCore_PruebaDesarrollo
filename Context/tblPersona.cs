@@ -34,7 +34,6 @@ namespace WebApiCore.Context
             tblLibreMensual = new HashSet<tblLibreMensual>();
             tblLibreSemanal = new HashSet<tblLibreSemanal>();
             tblLlamamiento = new HashSet<tblLlamamiento>();
-            tblLogsToken = new HashSet<tblLogsToken>();
             tblNomina = new HashSet<tblNomina>();
             tblNomina_MX = new HashSet<tblNomina_MX>();
             tblNomina_RD = new HashSet<tblNomina_RD>();
@@ -44,7 +43,6 @@ namespace WebApiCore.Context
             tblPersonaNAreaNLavanderia = new HashSet<tblPersonaNAreaNLavanderia>();
             tblPersonaNMaquina = new HashSet<tblPersonaNMaquina>();
             tblPersonaNTipoContrato = new HashSet<tblPersonaNTipoContrato>();
-            tblPersonaTokens = new HashSet<tblPersonaTokens>();
             tblPersona_PeticionCambioDatos = new HashSet<tblPersona_PeticionCambioDatos>();
             tblPersonasNParte = new HashSet<tblPersonasNParte>();
             tblPersonasNParte1 = new HashSet<tblPersonasNParte1>();
@@ -54,10 +52,9 @@ namespace WebApiCore.Context
             tblSalidaRepartoidEstibador1Navigation = new HashSet<tblSalidaReparto>();
             tblSalidaRepartoidEstibador2Navigation = new HashSet<tblSalidaReparto>();
             tblTaquilla_movimiento = new HashSet<tblTaquilla_movimiento>();
+            tblTaquillas_Movimiento_prueba = new HashSet<tblTaquillas_Movimiento_prueba>();
             tblTareaPersonaDia = new HashSet<tblTareaPersonaDia>();
             tblUsuario = new HashSet<tblUsuario>();
-            tblVideoNPersonaidPersonaNavigation = new HashSet<tblVideoNPersona>();
-            tblVideoNPersonaidPersonaRemitenteNavigation = new HashSet<tblVideoNPersona>();
             idLicenciaConducir = new HashSet<tblLicenciaConducir>();
             idMantenimientoPrev = new HashSet<tblMantenimientoPrev>();
             idParteTransporte = new HashSet<tblParteTransporte>();
@@ -282,8 +279,6 @@ namespace WebApiCore.Context
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblLlamamiento> tblLlamamiento { get; set; }
         [InverseProperty("idPersonaNavigation")]
-        public virtual ICollection<tblLogsToken> tblLogsToken { get; set; }
-        [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblNomina> tblNomina { get; set; }
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblNomina_MX> tblNomina_MX { get; set; }
@@ -301,8 +296,6 @@ namespace WebApiCore.Context
         public virtual ICollection<tblPersonaNMaquina> tblPersonaNMaquina { get; set; }
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblPersonaNTipoContrato> tblPersonaNTipoContrato { get; set; }
-        [InverseProperty("idPersonaNavigation")]
-        public virtual ICollection<tblPersonaTokens> tblPersonaTokens { get; set; }
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblPersona_PeticionCambioDatos> tblPersona_PeticionCambioDatos { get; set; }
         [InverseProperty("idPersonaNavigation")]
@@ -322,13 +315,11 @@ namespace WebApiCore.Context
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblTaquilla_movimiento> tblTaquilla_movimiento { get; set; }
         [InverseProperty("idPersonaNavigation")]
+        public virtual ICollection<tblTaquillas_Movimiento_prueba> tblTaquillas_Movimiento_prueba { get; set; }
+        [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblTareaPersonaDia> tblTareaPersonaDia { get; set; }
         [InverseProperty("idPersonaNavigation")]
         public virtual ICollection<tblUsuario> tblUsuario { get; set; }
-        [InverseProperty("idPersonaNavigation")]
-        public virtual ICollection<tblVideoNPersona> tblVideoNPersonaidPersonaNavigation { get; set; }
-        [InverseProperty("idPersonaRemitenteNavigation")]
-        public virtual ICollection<tblVideoNPersona> tblVideoNPersonaidPersonaRemitenteNavigation { get; set; }
 
         [ForeignKey("idPersona")]
         [InverseProperty("idPersona")]

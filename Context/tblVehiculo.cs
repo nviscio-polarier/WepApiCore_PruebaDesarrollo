@@ -16,6 +16,7 @@ namespace WebApiCore.Context
             tblSalidaReparto = new HashSet<tblSalidaReparto>();
             tblTaquilla_estado = new HashSet<tblTaquilla_estado>();
             tblTaquilla_movimiento = new HashSet<tblTaquilla_movimiento>();
+            tblTaquillas_Movimiento_prueba = new HashSet<tblTaquillas_Movimiento_prueba>();
             idLavanderia = new HashSet<tblLavanderia>();
         }
 
@@ -46,6 +47,8 @@ namespace WebApiCore.Context
         public virtual ICollection<tblTaquilla_estado> tblTaquilla_estado { get; set; }
         [InverseProperty("idVehiculoNavigation")]
         public virtual ICollection<tblTaquilla_movimiento> tblTaquilla_movimiento { get; set; }
+        [InverseProperty("idVehiculoNavigation")]
+        public virtual ICollection<tblTaquillas_Movimiento_prueba> tblTaquillas_Movimiento_prueba { get; set; }
 
         [ForeignKey("idVehiculo")]
         [InverseProperty("idVehiculo")]
