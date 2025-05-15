@@ -18,7 +18,7 @@ using WebApiCore.Hubs;
 
 namespace WebApiCore.Controllers.Proyectos.MyRealBonus
 {
-    public class tblTaquillasController : ODataController 
+    public class tblTaquillasController : ODataController
     {
         private readonly bdERP db;
 
@@ -65,9 +65,9 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             try
             {
                 var query = db.tblPersona
-                .Where(p => p.idLavanderia == idLavanderia 
+                .Where(p => p.idLavanderia == idLavanderia
                             && p.activo == true
-                            && p.eliminado == false 
+                            && p.eliminado == false
                             && p.idTipoTrabajo == 6
                 )
                 .Select(p => new PersonaDTO
@@ -85,25 +85,70 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
                 return StatusCode(500, $"Error solicitu Personas: {e.Message}");
             }
         }
-        
-        /// <summary>
-        /// DTO para recibir solo id y denominacion
-        /// </summary>
-        public class LavanderiaDTO
+
+        [EnableQuery]
+        [HttpGet("odata/getVehiculoLavanderia")]
+        public async Task<ActionResult> GetVehiculoLavanderia([FromODataUri] int idLavanderia)
         {
-            public int idLavanderia { get; set; }
-            public string denominacion { get; set; }
+            try
+            {
+                var query = db.tblVehiculo
+                .Where(p => p.idLavanderia.Any(i => i.idLavanderia == idLavanderia) && p.eliminado == false
+                )
+                .Select(p => new VehiculoDTO
+                {
+                    idVehiculo = p.idVehiculo,
+                    matricula = p.matricula,
+                    denominacion = p.denominacion,
+                });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Personas: {e.Message}");
+            }
         }
 
-        /// <summary>
-        /// DTO para recibir los datos de persona
-        /// </summary>
 
-        public class PersonaDTO
-        {
-            public int idPersona { get; set; }
-            public string nombre { get; set; }
-            public string apellidos { get; set; }
-        }
+
     }
+
+
+
+
+    /// <summary>
+    /// DTO para recibir solo id y denominacion
+    /// </summary>
+    public class LavanderiaDTO
+    {
+        public int idLavanderia { get; set; }
+        public string denominacion { get; set; }
+    }
+
+    /// <summary>
+    /// DTO para recibir los datos de persona
+    /// </summary>
+
+    public class PersonaDTO
+    {
+        public int idPersona { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
+    }
+
+
+    /// <summary>
+    /// DTO GET Info Vehiculo
+    /// </summary>
+
+    public class VehiculoDTO
+    {
+        public int idVehiculo { get; set; }
+        public string matricula { get; set; }
+        public string denominacion { get; set; }
+    }
+
 }
+
