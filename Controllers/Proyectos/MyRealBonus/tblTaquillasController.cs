@@ -208,6 +208,95 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
         }
 
         ///<summary>
+        /// Recoge los movimientos realizados desde la app
+        ///</summary>
+
+        [EnableQuery]
+        [HttpGet("odata/getMovimientos")]
+        public async Task<ActionResult> GetMovimientos()
+        {
+            try
+            {
+                var query = db.tblTaquillas_Movimiento_prueba
+                    .Select(p => new MovimientoTaquillaDTO
+                    {
+                        idMovimiento = p.idMovimiento,
+                        idTaquilla = p.idTaquilla,
+                        idVehiculo = p.idVehiculo,
+                        idPersona = p.idPersona,
+                        fechaRecogida = p.fechaRecogida,
+                        fechaDejar = p.fechaDejar,
+                        posicion = p.posicion
+
+                    });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Movimientos: {e.Message}");
+            }
+        }
+
+
+        [EnableQuery]
+        [HttpGet("odata/getEstadoTodasTaquillas")]
+        public async Task<ActionResult> GetEstadoTodasTaquillas()
+        {
+            try
+            {
+                var query = db.tblTaquillas_Estado_prueba
+                    .Where(p => p.disponible == false)
+                    .Select(p => new EstadoDTO
+                    {
+                        idTaquilla = p.idTaquilla,
+                        posicion = p.posicion,
+                        disponible = p.disponible,
+
+                    });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Lavanderia: {e.Message}");
+            }
+        }
+
+        ///<summary>
+        ///Recoge el estado de las taquillas seleccionada 
+
+        [EnableQuery]
+        [HttpGet("odata/getEstadoTaquilla")]
+        public async Task<ActionResult> GetEstadoTaquilla([FromODataUri] int idTaquilla)
+        {
+            try
+            {
+                var query = db.tblTaquillas_Estado_prueba
+                    .Where(p => p.idTaquilla == idTaquilla && p.disponible == false)
+                    .Select(p => new EstadoDTO
+                    {
+                        idTaquilla = p.idTaquilla,
+                        posicion = p.posicion,
+
+                    });
+
+                var result = await query.ToListAsync();
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error solicitu Lavanderia: {e.Message}");
+            }
+        }
+
+
+        ///<summary>
         /// Postea el estado de la posicion ( disponible = si/no )
         /// </summary>
 
@@ -354,6 +443,7 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
 
         public class MovimientoTaquillaDTO
         {
+            public int idMovimiento { get; set; }
             public int idTaquilla { get; set; }
             public int idVehiculo { get; set; }
             public int idPersona { get; set; }
@@ -361,5 +451,6 @@ namespace WebApiCore.Controllers.Proyectos.MyRealBonus
             public DateTime? fechaDejar { get; set; }
             public int? posicion { get; set; }
         }
+
 }
 
